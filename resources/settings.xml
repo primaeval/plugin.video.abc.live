@@ -1,0 +1,8 @@
+<settings>
+
+<category label="Basic">
+    <setting label="Port" type="number" id="port" default="6666"/>
+	<setting label="Quality" type="select" id="quality" default="best" values="worst|306k|514k|730k|846k|best"/>
+</category>
+
+</settings>
