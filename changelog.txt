@@ -1,3 +1,6 @@
+Version 0.0.3
+- local libs
+
 Version 0.0.2
 - token refresh if called directly
 

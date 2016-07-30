@@ -2,6 +2,7 @@ import json
 import os
 import shutil
 import tempfile
+import xbmc
 
 from time import time
 from .compat import is_win32
@@ -14,6 +15,11 @@ else:
                                os.path.expanduser("~/.cache"))
 
 cache_dir = os.path.join(xdg_cache, "livestreamer")
+cache_dir = xbmc.translatePath("special://temp/livestreamer")
+try:
+    os.makedirs(cache_dir)
+except:
+    pass
 
 
 class Cache(object):
@@ -50,7 +56,7 @@ class Cache(object):
         return len(pruned) > 0
 
     def _save(self):
-        fd, tempname = tempfile.mkstemp()
+        fd, tempname = tempfile.mkstemp(dir=cache_dir)
         fd = os.fdopen(fd, "w")
         json.dump(self._cache, fd, indent=2, separators=(",", ": "))
         fd.close()

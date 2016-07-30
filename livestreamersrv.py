@@ -14,13 +14,15 @@ try:
 except:
    current_dir = os.getcwd()
 
-sys.path.append(os.path.join(current_dir, 'resources', 'lib'))
-try:
-    from livestreamer import Livestreamer
-except:
-    import common, sys
-
-    sys.exit()
+lib = xbmc.translatePath("special://home/addons/plugin.video.abc.live/resources/lib")
+#xbmc.log(lib)
+#sys.path.append(os.path.join(current_dir, 'resources', 'lib'))
+sys.path.append(lib)
+#xbmc.log(repr(sys.path))
+#try:
+from livestreamer import Livestreamer
+#except:
+#    sys.exit()
 
 from urllib import unquote
 
