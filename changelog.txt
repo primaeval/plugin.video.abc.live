@@ -1,3 +1,7 @@
+Version 0.0.4
+- images
+- cleaner exit
+
 Version 0.0.3
 - local libs
 
