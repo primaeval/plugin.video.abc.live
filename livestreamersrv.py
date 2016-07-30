@@ -6,7 +6,15 @@ from BaseHTTPServer import HTTPServer, BaseHTTPRequestHandler
 import socket
 #import thread
 import threading
+import os, sys
 
+# Add our resources/lib to the python path
+try:
+   current_dir = os.path.dirname(os.path.abspath(__file__))
+except:
+   current_dir = os.getcwd()
+
+sys.path.append(os.path.join(current_dir, 'resources', 'lib'))
 try:
     from livestreamer import Livestreamer
 except:
@@ -33,8 +41,8 @@ def Streamer(wfile, url, quality):
     channel = LIVESTREAMER.resolve_url(url)
 
     streams = channel.get_streams()
-    for stream in streams:
-        xbmc.log(stream)
+    #for stream in streams:
+    #    xbmc.log(stream)
     if not streams:
         raise Exception("No Stream Found!")
 
