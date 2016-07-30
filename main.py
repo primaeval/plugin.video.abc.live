@@ -46,6 +46,7 @@ def index():
         items.append({
             'label': channel,
             'path': plugin.url_for('play',channel=channel),
+            'thumbnail': "special://home/addons/plugin.video.abc.live/resources/img/%s.png" % channel,
             'is_playable': True
         })
 

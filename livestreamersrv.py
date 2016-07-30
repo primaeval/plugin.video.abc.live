@@ -57,7 +57,10 @@ def Streamer(wfile, url, quality):
         buff = fd.read(1024)
         if not buff:
            raise Exception("No Data!")
-        wfile.write(buff)
+        try:   
+            wfile.write(buff)
+        except:
+            break
     fd.close()
     fd = None
     #raise Exception("End Of Data!")
