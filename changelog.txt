@@ -1,3 +1,7 @@
+Version 0.0.5
+- Australia Plus
+- link to iView addon
+
 Version 0.0.4
 - images
 - cleaner exit
