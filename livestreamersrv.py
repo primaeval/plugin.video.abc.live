@@ -39,7 +39,9 @@ def Streamer(wfile, url, quality):
     #    params = url[i+1:].replace('&',';')
     #    url = url[:i]
     #    LIVESTREAMER.set_option('http-headers', params)
-    LIVESTREAMER.set_option("http-headers", {"X-Forwarded-For": "101.188.88.88"})
+    import random
+    ip =  "101.188.%d.%d" % (random.randint(1,200),random.randint(1,200))
+    LIVESTREAMER.set_option("http-headers", {"X-Forwarded-For": ip})
     channel = LIVESTREAMER.resolve_url(url)
 
     streams = channel.get_streams()

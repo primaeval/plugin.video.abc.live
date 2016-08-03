@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <addon id="plugin.video.abc.live"
-version="0.0.3"
+version="0.0.4"
 name="ABC Live"
 provider-name="p">
 <requires>
