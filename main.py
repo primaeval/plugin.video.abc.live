@@ -23,7 +23,7 @@ def play(channel):
         port = int(xbmcaddon.Addon(id='plugin.video.abc.live').getSetting('port'))
     except:
         port = 6666
-    
+
     urls = {
     "ABC1": "http://127.0.0.1:%s/?%s" % (port,urllib.quote("%s" % "hds://http://abctvlivehds-lh.akamaihd.net/z/abc1_1@360322/manifest.f4m?hdcore=true&hdnea=%s pvswf=http://iview.abc.net.au/assets/swf/cineramaWrapper_Acc_018.swf?version=0.2" % token)),
     "ABC2": "http://127.0.0.1:%s/?%s" % (port,urllib.quote("%s" % "hds://http://abctvlivehds-lh.akamaihd.net/z/abc2_1@17511/manifest.f4m?hdcore=true&hdnea=%s pvswf=http://iview.abc.net.au/assets/swf/cineramaWrapper_Acc_018.swf?version=0.2" % token)),
@@ -37,7 +37,7 @@ def play(channel):
     item ={'label':channel, 'path':url, 'is_playable': True}
     return plugin.set_resolved_url(item)
 
-    
+
 @plugin.route('/')
 def index():
     channels = ["ABC1", "ABC2", "ABC3", "ABC Kids", "ABC News 24"]
@@ -49,6 +49,24 @@ def index():
             'thumbnail': "special://home/addons/plugin.video.abc.live/resources/img/%s.png" % channel,
             'is_playable': True
         })
+
+    channel = "Australia Plus"
+    items.append({
+        'label': channel,
+        'path': 'http://118.97.183.222:1935/discover/aplus/chunklist.m3u8',
+        'thumbnail': "special://home/addons/plugin.video.abc.live/resources/img/%s.png" % channel,
+        'is_playable': True
+    })
+    try:
+        ilive = xbmcaddon.Addon(id='plugin.video.abc_iview')
+        items.append({
+            'label': 'ABC iView',
+            'path': 'plugin://plugin.video.abc_iview',
+            'thumbnail': "special://home/addons/plugin.video.abc.live/resources/img/%s.png" % "abc_iview",
+            'is_playable': False
+        })
+    except:
+        pass
 
     return items
 
